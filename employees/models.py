@@ -6,7 +6,7 @@ class Employee(models.Model):
     email = models.EmailField(max_length=100, unique=True)
     mobile = models.CharField(max_length=20)
     date_of_birth = models.DateField()
-    photo = models.ImageField(upload_to='employee_photos/',blank=True,null=True) 
+    photo = models.ImageField(upload_to='employee_photos/') 
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

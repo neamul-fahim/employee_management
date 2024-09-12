@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Employee Management{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">  <!-- Include your stylesheet here -->
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <ul>
+                <!-- <li><a href=''><img src="{% static 'home_icon.png' %}" alt="Home Icon"> Home</a></li> -->
+                <li><a href="{% url 'employee_list' %}"><img src="{% static 'employee_icon.png' %}" alt="Employees Icon"> Employees</a></li>
+                <li><a href="{% url 'add_employee' %}"><img src="{% static 'add_icon.png' %}" alt="Add Employee Icon"> Add Employee</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            {% block content %}
+            <!-- Content specific to each page will go here -->
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

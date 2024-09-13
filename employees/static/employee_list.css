@@ -62,3 +62,39 @@
     background-color: #f0f0f0;
     border-color: #ccc;
 }
+
+
+/* Sucess message on delete css */
+
+/* Wireframe-style alert message */
+/* White container with black border and minimalist style */
+.wireframe-message {
+    background-color: #fff; /* White background */
+    border: 2px solid #000 !important;/* Black solid border */
+    padding: 20px !important; /* Space inside the box */
+    margin: 20px 0 !important; /* Space outside the box */
+    color: #333 !important; /* Darker text color */
+    font-family: Arial, sans-serif !important; /* Simple, clean font */
+    text-align: center !important; /* Center text */
+    border-radius: 10px !important; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important; /* Light shadow for depth */
+    position: relative !important; /* For potential positioning */
+    max-width: 500px !important; /* Restrict the width */
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Success message specific style */
+.wireframe-message.alert-success {
+    color: #28a745 !important; /* Green text for success */
+}
+
+/* Error message specific style */
+.wireframe-message.alert-error {
+    color: #dc3545 !important; /* Red text for error */
+}
+
+/* Info message specific style */
+.wireframe-message.alert-info {
+    color: #17a2b8 !important; /* Blue text for info */
+}

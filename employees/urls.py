@@ -4,6 +4,10 @@ from . import views
 urlpatterns = [
     path('', views.employee_list, name='employee_list'),
     path('add-employee/', views.add_employee, name='add_employee'),
+    path('delete-employee/<int:employee_id>/', views.delete_employee, name='delete_employee'),
+    path('edit-employee/<int:employee_id>/', views.edit_employee, name='edit_employee'),
+
+
     # path('edit-employee/<int:id>/', views.edit_employee, name='edit_employee'),  # For editing employee details
     # path('employees/', views.employee_list, name='employee_list'),  # A page to list employees
 ]

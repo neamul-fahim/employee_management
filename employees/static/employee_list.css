@@ -56,12 +56,12 @@ a{
 .sort-icons {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the icons horizontally */
+    align-items: center; 
 }
 
 .sort-link {
     text-decoration: none;
-    color: inherit; /* Keeps the icon color consistent */
+    color: inherit;
 }
 
 .sort-link i {

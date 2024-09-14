@@ -6,5 +6,5 @@ class EmployeeForm(forms.ModelForm):
         model = Employee
         fields = ['first_name', 'last_name', 'email', 'mobile', 'date_of_birth', 'photo']
         widgets = {
-            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),  # Adding a date picker for the date field
+            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
         }

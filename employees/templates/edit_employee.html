@@ -32,6 +32,8 @@
     <div class="form-group">
         <label for="id_photo">Photo</label>
         <input type="file" id="id_photo" name="photo" accept="image/*">
+
+        <!-- Image preview -->
         <br>
         <img id="imagePreview" src="{% if form.instance.photo %}{{ form.instance.photo.url }}{% endif %}" alt="Image Preview" style="max-width: 300px; max-height: 300px;">
     </div>
@@ -41,6 +43,8 @@
 </div>
 
 <script>
+
+    // Image preview
     document.getElementById('id_photo').addEventListener('change', function(event) {
         const file = event.target.files[0];
         const reader = new FileReader();

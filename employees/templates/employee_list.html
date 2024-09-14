@@ -19,7 +19,7 @@
 
 <div class="employee-list-container">
 
-    <!-- Search Filters -->
+    <!-- Searching -->
     <div class="filter-section">
         <form method="GET" action="">
             <input type="text" name="name" placeholder="Name" value="{{ request.GET.name }}">
@@ -34,6 +34,8 @@
 
     <!-- Employee Table -->
     <table class="employee-table">
+
+        <!-- Employ table header and sorting -->
         <thead>
             <tr>
                 <th>
@@ -101,7 +103,8 @@
                 </th>
             </tr>
         </thead>
-        
+
+        <!-- Employee Table Body -->
         <tbody>
             {% for employee in employees %}
             <tr>
@@ -174,7 +177,7 @@
         deleteModal.style.display = 'block';
     }
 
-    // Close the modal and do nothing
+    // Close the modal
     cancelDeleteBtn.addEventListener('click', function() {
         deleteModal.style.display = 'none';
         employeeToDelete = null;

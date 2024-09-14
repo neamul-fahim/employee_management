@@ -20,11 +20,13 @@ class Employee(models.Model):
 
 
     def delete(self, *args, **kwargs):
-        # Delete the file associated with the model instance
+        # Delete the image file associated with the employee
         if self.photo and os.path.isfile(self.photo.path):
             os.remove(self.photo.path)
         super(Employee, self).delete(*args, **kwargs)
+        
     def save(self, *args, **kwargs):
+        # Resizing image file to less than 300KB
         # Check if an image is uploaded
         if self.photo:
             image = Image.open(self.photo)
@@ -93,26 +95,3 @@ class Employee(models.Model):
         # Call the parent save method to actually save the object
         super().save(*args, **kwargs)
 
-
-    # def save(self, *args, **kwargs):
-    #     # Resize the image if it's larger than 1024x1024
-    #     if self.photo:
-    #         image = Image.open(self.photo)
-    #         max_width, max_height = 1024, 1024
-    #         image.thumbnail((max_width, max_height), Image.ANTIALIAS)
-            
-    #         # Save the resized image to a BytesIO object
-    #         temp_file = io.BytesIO()
-    #         image.save(temp_file, format=image.format)
-    #         temp_file.seek(0)
-            
-    #         # Save the resized image to the model's photo field
-    #         self.photo = InMemoryUploadedFile(
-    #             temp_file,
-    #             'ImageField',
-    #             self.photo.name,
-    #             'image/jpeg',
-    #             temp_file.tell(),
-    #             None
-    #         )
-    #     super().save(*args, **kwargs)

@@ -15,14 +15,41 @@
         <button type="submit" class="btn-submit">Save Employee</button>
     </form>
 
+
+
     {% if messages %}
+<div class="messages" id="successMessage">
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" >
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<script>
+     setTimeout(function() {
+        var successMessage = document.getElementById("successMessage");
+        if (successMessage) {
+            successMessage.style.transition = "opacity 0.5s ease-out";
+            successMessage.style.opacity = "0";
+            setTimeout(function() {
+                successMessage.remove();
+            }, 500);
+        }
+    }, 2000);
+</script>
+ 
+    <!-- {% if messages %}
     <ul>
         {% for message in messages %}
         <li>{{ message }}</li>
         {% endfor %}
     </ul>
-    {% endif %}
-{% endblock %}
+    {% endif %} -->
+    
+{% endblock %} 
 
 
 <!-- <!DOCTYPE html>

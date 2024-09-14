@@ -4,12 +4,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
+
 footer{
     display: flex;
     justify-content: center; /* Centers text horizontally */
     align-items: center; /* Centers text vertically */
+    flex-grow:0;
+    flex-shrink: 0;
     height: 80px; 
 }
 
@@ -24,7 +26,6 @@ footer{
     width: 250px;
     background-color: white;
     border: 1px, solid black;
-    /* height: 80vh; */
 }
 
 .sidebar ul {
@@ -37,6 +38,7 @@ footer{
     border: 1px, solid black;
     display: flex;
     justify-content: start;
+    font-size: 20px;
 }
 .sidebar ul li:hover {
    background-color: #cdd5de;
@@ -44,12 +46,10 @@ footer{
 
 .sidebar ul li a {
     text-decoration: none;
-    color: #333;
-    font-size: 18px;
-   
+    color: #333;   
 }
 
-.sidebar ul li a i{
+.sidebar ul a li i{
   padding-right: 8px;
 }
 

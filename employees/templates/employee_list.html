@@ -40,58 +40,68 @@
                     <p>Photo</p>
                 </th>
                 <th>
-                    <a href="?sort=first_name{% if sort_field == 'first_name' %}{% if sort_order == 'asc' %}&order=desc{% endif %}{% endif %}">
-                        Name
-                        {% if sort_field == 'first_name' %}
-                            {% if sort_order == 'asc' %}
-                            <i class="fa-solid fa-sort-up"></i>                               
-                            {% else %}
-                            <i class="fa-solid fa-sort-down"></i>                                
-                             {% endif %}
-                        {% endif %}
+                    <div>
+                    Name
+                    <div class="sort-icons">
+                    <a href="?sort=first_name&order=asc" class="sort-link">
+                     <i class="fa-solid fa-sort-up"></i>
                     </a>
+                    <a href="?sort=first_name&order=desc" class="sort-link">
+                        <i class="fa-solid fa-sort-down"></i>
+                    </a>
+                    </div>
+                </div>
                 </th>
                 <th>
-                    <a href="?sort=email{% if sort_field == 'email' %}{% if sort_order == 'asc' %}&order=desc{% endif %}{% endif %}">
-                        Email
-                        {% if sort_field == 'email' %}
-                            {% if sort_order == 'asc' %}
-                            <i class="fa-solid fa-sort-up"></i>                          
-                            {% else %}
-                            <i class="fa-solid fa-sort-down"></i>                            
-                              {% endif %}
-                        {% endif %}
+                    <div>
+                    Email
+                    <div class="sort-icons">
+                    <a href="?sort=email&order=asc" class="sort-link">
+                         <i class="fa-solid fa-sort-up"></i>
                     </a>
+                    <a href="?sort=email&order=desc" class="sort-link">
+                        <i class="fa-solid fa-sort-down"></i>
+                    </a>
+                </div>
+
+                </div>
+
                 </th>
                 <th>
-                    <a href="?sort=mobile{% if sort_field == 'mobile' %}{% if sort_order == 'asc' %}&order=desc{% endif %}{% endif %}">
-                        Mobile
-                        {% if sort_field == 'mobile' %}
-                            {% if sort_order == 'asc' %}
-                            <i class="fa-solid fa-sort-up"></i>                            
-                            {% else %}
-                            <i class="fa-solid fa-sort-down"></i>                            
-                            {% endif %}
-                        {% endif %}
+                    <div>
+                    Mobile
+                    <div class="sort-icons">
+                    <a href="?sort=mobile&order=asc" class="sort-link">
+                         <i class="fa-solid fa-sort-up"></i>
                     </a>
+                    <a href="?sort=mobile&order=desc" class="sort-link">
+                        <i class="fa-solid fa-sort-down"></i>
+                    </a>
+                </div>
+
+                </div>
+
                 </th>
                 <th>
-                    <a href="?sort=date_of_birth{% if sort_field == 'date_of_birth' %}{% if sort_order == 'asc' %}&order=desc{% endif %}{% endif %}">
-                        Date of Birth
-                        {% if sort_field == 'date_of_birth' %}
-                            {% if sort_order == 'asc' %}
-                            <i class="fa-solid fa-sort-up"></i>
-                            {% else %}
-                            <i class="fa-solid fa-sort-down"></i>                            
-                            {% endif %}
-                        {% endif %}
+                    <div>
+                    Date of Birth
+                    <div class="sort-icons">
+                    <a href="?sort=date_of_birth&order=asc" class="sort-link">
+                         <i class="fa-solid fa-sort-up"></i>
                     </a>
+                    <a href="?sort=date_of_birth&order=desc" class="sort-link">
+                        <i class="fa-solid fa-sort-down"></i>
+                    </a>
+                    <div>
+                </div>
+
                 </th>
                 <th>
                     <p>Actions</p>
-                  </th>
+                </th>
             </tr>
         </thead>
+        
         <tbody>
             {% for employee in employees %}
             <tr>

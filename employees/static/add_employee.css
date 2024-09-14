@@ -36,22 +36,3 @@
 .btn-submit:hover {
     background-color: #cdd5de;
 }
-
-.messages {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    border-radius: 4px;
-    position: relative;
-}
-
-.messages ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.messages li {
-    color: #721c24;
-}

@@ -23,7 +23,7 @@
     <div class="filter-section">
         <form method="GET" action="">
             <input type="text" name="name" placeholder="Name" value="{{ request.GET.name }}">
-            <input type="text" name="dob" placeholder="Date of Birth" class="datepicker" value="{{ request.GET.dob }}">
+            <input type="date" name="dob" placeholder="Date of Birth" class="datepicker" value="{{ request.GET.dob }}">
             <input type="email" name="email" placeholder="Email" value="{{ request.GET.email }}">
             <input type="text" name="mobile" placeholder="Mobile" value="{{ request.GET.mobile }}">
             <button type="submit">
@@ -36,14 +36,65 @@
     <table class="employee-table">
         <thead>
             <tr>
-                
-                
+                <th>
+                    <p>Photo</p>
+                </th>
+                <th>
+                    <a href="?sort=first_name{% if sort_field == 'first_name' %}{% if sort_order == 'asc' %}&order=desc{% endif %}{% endif %}">
+                        Name
+                        {% if sort_field == 'first_name' %}
+                            {% if sort_order == 'asc' %}
+                                &#x25B2;  {% else %}
+                                &#x25BC;  {% endif %}
+                        {% endif %}
+                    </a>
+                </th>
+                <th>
+                    <a href="?sort=email{% if sort_field == 'email' %}{% if sort_order == 'asc' %}&order=desc{% endif %}{% endif %}">
+                        Email
+                        {% if sort_field == 'email' %}
+                            {% if sort_order == 'asc' %}
+                                &#x25B2;
+                            {% else %}
+                                &#x25BC;
+                            {% endif %}
+                        {% endif %}
+                    </a>
+                </th>
+                <th>
+                    <a href="?sort=mobile{% if sort_field == 'mobile' %}{% if sort_order == 'asc' %}&order=desc{% endif %}{% endif %}">
+                        Mobile
+                        {% if sort_field == 'mobile' %}
+                            {% if sort_order == 'asc' %}
+                                &#x25B2;
+                            {% else %}
+                                &#x25BC;
+                            {% endif %}
+                        {% endif %}
+                    </a>
+                </th>
+                <th>
+                    <a href="?sort=date_of_birth{% if sort_field == 'date_of_birth' %}{% if sort_order == 'asc' %}&order=desc{% endif %}{% endif %}">
+                        Date of Birth
+                        {% if sort_field == 'date_of_birth' %}
+                            {% if sort_order == 'asc' %}
+                                &#x25B2;
+                            {% else %}
+                                &#x25BC;
+                            {% endif %}
+                        {% endif %}
+                    </a>
+                </th>
+                <th>
+                    <p>Actions</p>
+                  </th>
             </tr>
         </thead>
         <tbody>
             {% for employee in employees %}
             <tr>
-                <td><img src="{{ employee.photo.url}}" alt="Employee Photo" class="employee-photo"></td>
+                <td>
+                    <img src="{% if employee.photo %}{{ employee.photo.url }}{% else %}{% static 'images/profile_pic_placeholder.png' %}{% endif %}" alt="Employee Photo" class="employee-photo">
                 <td>{{ employee.first_name }} {{ employee.last_name }}</td>
                 <td>{{ employee.email }}</td>
                 <td>{{ employee.mobile }}</td>

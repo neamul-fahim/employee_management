@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Employee Management{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}"> 
+    <link rel="stylesheet" href="{% static 'base.css' %}"> 
     <link rel="stylesheet" href="{% static 'employee_list.css' %}"> 
     <link rel="stylesheet" href="{% static 'edit_employee.css' %}"> 
     <link rel="stylesheet" href="{% static 'add_employee.css' %}"> 
@@ -19,7 +19,6 @@
         <!-- Sidebar Navigation -->
         <div class="sidebar">
             <ul>
-                <!-- <li><a href=''><img src="{% static 'home_icon.png' %}" alt="Home Icon"> Home</a></li> -->
                 <li><a href="{% url 'employee_list' %}"><img src="{% static 'employee_icon.png' %}" alt="Employees Icon"> Employees</a></li>
                 <li><a href="{% url 'add_employee' %}"><img src="{% static 'add_icon.png' %}" alt="Add Employee Icon"> Add Employee</a></li>
             </ul>
@@ -33,4 +32,7 @@
         </div>
     </div>
 </body>
+<footer>
+    <p>Copyright 2024</p>
+</footer>
 </html>

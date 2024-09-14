@@ -26,8 +26,15 @@ def employee_list(request):
         employees = employees.filter(date_of_birth__icontains=dob)
     
     # Sorting
-    ordering = request.GET.get('ordering', 'first_name')
-    employees = employees.order_by(ordering)
+    # ordering = request.GET.get('ordering', 'first_name')
+    # employees = employees.order_by(ordering)
+     # Sorting
+    sort_field = request.GET.get('sort')
+    if sort_field:
+        sort_order = request.GET.get('order', 'asc')
+        if sort_order == 'desc':
+            sort_field = '-' + sort_field
+        employees = employees.order_by(sort_field)
 
     # Pagination
     paginator = Paginator(employees, 6)  # Show 10 employees per page
@@ -35,7 +42,9 @@ def employee_list(request):
     employees_page = paginator.get_page(page_number)
 
     context = {
-        'employees': employees_page
+        'employees': employees_page,
+        'sort_field': sort_field,  # Pass the sort field for template logic
+
     }
     return render(request, 'employee_list.html', context)
 

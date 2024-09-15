@@ -6,7 +6,6 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 
 
-
 def employee_list(request):
     employees = Employee.objects.all()
 
@@ -25,9 +24,7 @@ def employee_list(request):
     if dob:
         employees = employees.filter(date_of_birth__icontains=dob)
     
-    # Sorting
-    # ordering = request.GET.get('ordering', 'first_name')
-    # employees = employees.order_by(ordering)
+    
      # Sorting
     sort_field = request.GET.get('sort')
     if sort_field:
@@ -37,13 +34,13 @@ def employee_list(request):
         employees = employees.order_by(sort_field)
 
     # Pagination
-    paginator = Paginator(employees, 6)  # Show 10 employees per page
+    paginator = Paginator(employees, 6) 
     page_number = request.GET.get('page')
     employees_page = paginator.get_page(page_number)
 
     context = {
         'employees': employees_page,
-        'sort_field': sort_field,  # Pass the sort field for template logic
+        'sort_field': sort_field,
 
     }
     return render(request, 'employee_list.html', context)
@@ -51,7 +48,7 @@ def employee_list(request):
 
 def add_employee(request):
     if request.method == 'POST':
-        form = EmployeeForm(request.POST, request.FILES)  # Handle file uploads too
+        form = EmployeeForm(request.POST, request.FILES) 
         if form.is_valid():
             form.save()  # Save the form data to the database
             messages.success(request, 'Employee added successfully!')
@@ -60,15 +57,13 @@ def add_employee(request):
     
     return render(request, 'add_employee.html', {'form': form})
 
-from django.shortcuts import redirect, get_object_or_404
-from django.contrib import messages
-from .models import Employee
+
 
 def delete_employee(request, employee_id):
     employee = get_object_or_404(Employee, id=employee_id)
     employee.delete()
     messages.success(request, "Employee has been deleted successfully.")
-    return redirect('employee_list')  # Assuming 'employee_list' is your employee list page's URL name.
+    return redirect('employee_list') 
 
 
 
